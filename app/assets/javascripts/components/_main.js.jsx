@@ -14,6 +14,7 @@ class Main extends React.Component {
   render() {
     return (
       <div>
+        <NewQuestion />
         <QuestionList questions={this.state.questions} />
       </div>
     )

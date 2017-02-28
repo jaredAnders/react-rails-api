@@ -15,6 +15,6 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:question_text, :answer, :distractors)
+    params.require(:question).permit(:question_text, :answer, distractors: [])
   end
 end
