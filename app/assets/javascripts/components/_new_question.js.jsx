@@ -17,6 +17,12 @@ class NewQuestion extends React.Component {
           answer: answer,
           distractors: distractors
         }
+      },
+      success: (question) => {
+        this.props.handleSubmit(question);
+        this.refs.question.value = '';
+        this.refs.answer.value = '';
+        this.refs.distractors.value = '';
       }
     });
   }

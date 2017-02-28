@@ -3,18 +3,25 @@ class Main extends React.Component {
     super(props);
 
     this.state = {
-      questions:[]
+      questions: []
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
     $.getJSON('/questions', (response) => { this.setState({ questions: response }) });
   }
 
+  handleSubmit(question) {
+    const newState = this.state.questions.concat(question);
+    this.setState({ questions: newState });
+  }
+
   render() {
     return (
       <div>
-        <NewQuestion />
+        <NewQuestion handleSubmit={this.handleSubmit}/>
         <QuestionList questions={this.state.questions} />
       </div>
     )
